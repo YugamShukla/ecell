@@ -25,137 +25,164 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         backgroundColor: Color(0xFF253036),
         body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-                Container(
-                  margin: EdgeInsets.only(left: 20.0),
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 50,
-                        width: 200,
-                        child: TextField(
-                          onChanged: (value){
-                            print(value);
-                          },
-                          decoration: InputDecoration(
-                              suffixIcon:IconButton(
-                                icon: Icon(Icons.search,
-                                  color: Colors.blue,),
-                                onPressed: (){},
-                              ),
-                            hintText: 'SEARCH',
-                            hintStyle: TextStyle(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 20.0),
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 35,
+                          width: 200,
+                          child: TextField(
+                            style: TextStyle(
+                              fontSize: 15,
                               color: Colors.white
-                            )
+                            ),
+                            onChanged: (value){
+                              print(value);
+                            },
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.only(left: 20.0),
+                                suffixIcon:IconButton(
+                                  icon: Icon(Icons.search,
+                                    color: Colors.grey[200],),
+                                  onPressed: (){},
+                                ),
+                              hintText: 'SEARCH',
+                              hintStyle: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 15,
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.grey),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white,
+                                    width: 2.0),
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Text('FILTERS',
-                      style: TextStyle(
-                        color: Colors.cyan
-                      ),),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Theme(
-                        data: Theme.of(context).copyWith(
-                          canvasColor: Color(0xFF253036),),
-                        child: DropdownButton<String>(
-                          items: schools.map((String dropDownStringItem){
-                            return DropdownMenuItem<String>(
-                                value: dropDownStringItem,
-                                child: Text(dropDownStringItem,
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                      color: Colors.white
-                                  ),)
-                            );
-                          }).toList(),
-
-                          onChanged: (String selectedvalue) {
-                            setState(() {
-                              this.school_selectd_code = selectedvalue;
-                            });
-                          },
-                          value: school_selectd_code,
+                        SizedBox(
+                          width: 20,
                         ),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Theme(
-                        data: Theme.of(context).copyWith(
+                        Text('FILTERS',
+                        style: TextStyle(
+                          color: Colors.cyan
+                        ),),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Theme(
+                          data: Theme.of(context).copyWith(
                             canvasColor: Color(0xFF253036),),
-                        child: DropdownButton<String>(
-                          items: year.map((String dropDownStringItem){
-                            return DropdownMenuItem<String>(
-                                value: dropDownStringItem,
-                                child: Text(dropDownStringItem,
-                                  style: TextStyle(
+                          child: DropdownButton<String>(
+                            items: schools.map((String dropDownStringItem){
+                              return DropdownMenuItem<String>(
+                                  value: dropDownStringItem,
+                                  child: Text(dropDownStringItem,
+                                    style: TextStyle(
                                       fontSize: 15,
-                                      color: Colors.white
-                                  ),)
-                            );
-                          }).toList(),
-                          onChanged: (String selectedvalue) {
-                            setState(() {
-                              this.year_selectd_code = selectedvalue;
-                            });
-                          },
-                          value: year_selectd_code,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Theme(
-                        data: Theme.of(context).copyWith(
-                            canvasColor: Color(0xFF253036),),
-                        child: DropdownButton<String>(
-                          items: branch.map((String dropDownStringItem){
-                            return DropdownMenuItem<String>(
-                                value: dropDownStringItem,
-                                child: Text(dropDownStringItem,
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.white
-                                  ),)
-                            );
-                          }).toList(),
+                                        color: Colors.grey[200],
+                                    ),)
+                              );
+                            }).toList(),
 
-                          onChanged: (String selectedvalue) {
-                            setState(() {
-                              this.branch_selectd_code = selectedvalue;
-                            });
-                          },
-                          value: branch_selectd_code,
+                            onChanged: (String selectedvalue) {
+                              setState(() {
+                                this.school_selectd_code = selectedvalue;
+                              });
+                            },
+                            value: school_selectd_code,
+                          ),
                         ),
-                      ),
-                    ],
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Theme(
+                          data: Theme.of(context).copyWith(
+                              canvasColor: Color(0xFF253036),),
+                          child: DropdownButton<String>(
+                            items: year.map((String dropDownStringItem){
+                              return DropdownMenuItem<String>(
+                                  value: dropDownStringItem,
+                                  child: Text(dropDownStringItem,
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.grey[200],
+                                    ),)
+                              );
+                            }).toList(),
+                            onChanged: (String selectedvalue) {
+                              setState(() {
+                                this.year_selectd_code = selectedvalue;
+                              });
+                            },
+                            value: year_selectd_code,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Theme(
+                          data: Theme.of(context).copyWith(
+                              canvasColor: Color(0xFF253036),),
+                          child: DropdownButton<String>(
+                            items: branch.map((String dropDownStringItem){
+                              return DropdownMenuItem<String>(
+                                  value: dropDownStringItem,
+                                  child: Text(dropDownStringItem,
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.grey[200],
+                                    ),)
+                              );
+                            }).toList(),
+
+                            onChanged: (String selectedvalue) {
+                              setState(() {
+                                this.branch_selectd_code = selectedvalue;
+                              });
+                            },
+                            value: branch_selectd_code,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.symmetric(horizontal: 30.0),
-                  child: Wrap(
-                    direction: Axis.horizontal,
-                    children: <Widget>[
-                      StudentCard(branch: 'Btech(IT)', registration_no: 189302073, name:'Aditya ', achievements: 5, certificates: 9,),
-                      StudentCard(branch: 'Btech(IT)', registration_no: 189302073, name:'Anubhav ', achievements: 10, certificates: 10,),
-                      StudentCard(branch: 'Btech(CS)', registration_no: 189301079, name:'Yugam', achievements: 7, certificates: 9,),
-                      StudentCard(branch: 'Btech(CCE)', registration_no: 189303089, name:'Ram ', achievements: 12, certificates: 15,),
-                    ],
+                  SizedBox(
+                    height: 30,
                   ),
-                ),
-          ],
-        ),
+                  Expanded(
+                    child: ListView(
+                      children: [
+                        Container(
+                            alignment: Alignment.center,
+                            margin: EdgeInsets.symmetric(horizontal: 50.0),
+                            child: Wrap(
+                              direction: Axis.horizontal,
+                              children: <Widget>[
+                                StudentCard(branch: 'Btech(IT)', registration_no: 189302073, name:'Aditya ', achievements: 5, certificates: 9,),
+                                StudentCard(branch: 'Btech(IT)', registration_no: 189302073, name:'Anubhav ', achievements: 10, certificates: 10,),
+                                StudentCard(branch: 'Btech(CS)', registration_no: 189301079, name:'Yugam', achievements: 7, certificates: 9,),
+                                StudentCard(branch: 'Btech(CCE)', registration_no: 189303089, name:'Ram ', achievements: 12, certificates: 15,),
+                                StudentCard(branch: 'Btech(IT)', registration_no: 189302073, name:'Aditya ', achievements: 5, certificates: 9,),
+                                StudentCard(branch: 'Btech(IT)', registration_no: 189302073, name:'Anubhav ', achievements: 10, certificates: 10,),
+                                StudentCard(branch: 'Btech(CS)', registration_no: 189301079, name:'Yugam', achievements: 7, certificates: 9,),
+                                StudentCard(branch: 'Btech(CCE)', registration_no: 189303089, name:'Ram ', achievements: 12, certificates: 15,),
+                                StudentCard(branch: 'Btech(IT)', registration_no: 189302073, name:'Aditya ', achievements: 5, certificates: 9,),
+                                StudentCard(branch: 'Btech(IT)', registration_no: 189302073, name:'Anubhav ', achievements: 10, certificates: 10,),
+                                StudentCard(branch: 'Btech(CS)', registration_no: 189301079, name:'Yugam', achievements: 7, certificates: 9,),
+                                StudentCard(branch: 'Btech(CCE)', registration_no: 189303089, name:'Ram ', achievements: 12, certificates: 15,),
+                              ],
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+            ],
+          ),
       ),
     );
   }
